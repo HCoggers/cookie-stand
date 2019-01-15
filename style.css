@@ -1,0 +1,48 @@
+/* Use color codes:
+1B676A
+EEECED
+FBAD0E
+C7461B
+41261C */
+* {
+    background-color: #eeeced;
+}
+
+.highlights {
+    font-family: 'ZCOOL KuaiLe', cursive;
+    color: #c7461b;
+}
+
+.data {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fbad0e;
+}
+
+.text {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #41261c;
+    font-size: 3em;
+}
+
+img{
+    width: 394px;
+    height: 246px;
+    object-fit: cover;
+    object-position: 100% 0%;
+    float: left;
+}
+
+h1 {
+    text-align: right;
+    font-size: 7em;
+}
+
+p {
+    width: 70%;
+    float: right;
+}
+
+aside {
+    width: 30%;
+    float: left;
+}

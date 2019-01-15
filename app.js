@@ -1,9 +1,11 @@
 "use strict";
 
 //set global variables
-var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 var table = document.getElementById('sales');
 var allStores = [];
+var hourlyTotals = [];
+var totalsTotal = 0;
 
 //make store constructor function
 function CookieStore(name, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerCustomer) {
@@ -68,8 +70,25 @@ function salesHeader() {
         trEl.appendChild(thEl);
     }
     thEl = document.createElement('th');
-    thEl.textContent = 'Total';
+    thEl.textContent = 'Daily Location Total';
     trEl.appendChild(thEl);
+    table.appendChild(trEl);
+}
+
+//render footer
+function salesFooter() {
+    var trEl = document.createElement('tr');
+    var tdEl = document.createElement('td');
+    tdEl.textContent = 'Totals';
+    trEl.appendChild(tdEl);
+    for(var i = 0; i < hours.length; i++) {
+        tdEl = document.createElement('td');
+        tdEl.textContent = '//some clever math';
+        trEl.appendChild(tdEl);
+    }
+    tdEl = document.createElement('td');
+    tdEl.textContent = '//some clever math';
+    trEl.appendChild(tdEl);
     table.appendChild(trEl);
 }
 
@@ -80,3 +99,4 @@ for (var i = 0; i < allStores.length; i++) {
     allStores[i].randomHourlyCookies();
     allStores[i].render();
 }
+salesFooter();

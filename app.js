@@ -168,3 +168,10 @@ seatac.render();
 seaCenter.render();
 capHill.render();
 alki.render();
+
+//building a table with JS
+
+//In render function (separate functions for header row and data rows)
+//create element "var elEl = document.createElement('element tag');"
+//give it content "elEl = doctument.textContent = this.property;
+//append it to parent element "parentEl.appendChild(elEl);"

@@ -57,8 +57,24 @@ CookieStore.prototype.render = function () {
 };
 
 //render header
+function salesHeader() {
+    var trEl = document.createElement('tr');
+    var thEl = document.createElement('th');
+    thEl.textContent = '';
+    trEl.appendChild(thEl);
+    for (var i = 0; i < hours.length; i++) {
+        thEl = document.createElement('th');
+        thEl.textContent = hours[i];
+        trEl.appendChild(thEl);
+    }
+    thEl = document.createElement('th');
+    thEl.textContent = 'Total';
+    trEl.appendChild(thEl);
+    table.appendChild(trEl);
+}
 
 //call object functions
+salesHeader();
 for (var i = 0; i < allStores.length; i++) {
     allStores[i].randomCustomersPerHour();
     allStores[i].randomHourlyCookies();

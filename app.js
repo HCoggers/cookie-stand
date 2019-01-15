@@ -4,7 +4,7 @@
 var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 var table = document.getElementById('sales');
 var allStores = [];
-var hourlyTotals = [];
+var hourlyTotals = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var totalsTotal = 0;
 
 //make store constructor function
@@ -36,8 +36,10 @@ CookieStore.prototype.randomCustomersPerHour = function () {
 CookieStore.prototype.randomHourlyCookies = function () {
     for (var i = 0; i < hours.length; i++) {
         this.hourlyCookies.push(Math.floor(this.randomCustomersPerHour() * this.avgCookiesPerCustomer));
+        hourlyTotals[i] = hourlyTotals[i] + this.hourlyCookies[i];
         this.dailyCookies = this.dailyCookies + this.hourlyCookies[i]
     }
+    totalsTotal = totalsTotal + this.dailyCookies;
     console.log(`${this.name} sold ${this.dailyCookies} cookies today.`);
 };
 
@@ -83,11 +85,11 @@ function salesFooter() {
     trEl.appendChild(tdEl);
     for(var i = 0; i < hours.length; i++) {
         tdEl = document.createElement('td');
-        tdEl.textContent = '//some clever math';
+        tdEl.textContent = hourlyTotals[i];
         trEl.appendChild(tdEl);
     }
     tdEl = document.createElement('td');
-    tdEl.textContent = '//some clever math';
+    tdEl.textContent = totalsTotal;
     trEl.appendChild(tdEl);
     table.appendChild(trEl);
 }

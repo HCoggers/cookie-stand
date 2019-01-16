@@ -8,6 +8,18 @@ C7461B
     background-color: #eeeced;
 }
 
+a {
+    background-color: #1b676a;
+    border: #1b676a outset 5px;
+    color: #eeeced;
+    padding: 5px;
+}
+a:hover {
+    background-color: #eeeced;
+    border: #eeeced inset 5px;
+    color: #1b676a;
+}
+
 header {
     border: 10px solid #41261c;
 }

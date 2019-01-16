@@ -36,8 +36,8 @@ CookieStore.prototype.randomCustomersPerHour = function () {
 CookieStore.prototype.randomHourlyCookies = function () {
     for (var i = 0; i < hours.length; i++) {
         this.hourlyCookies.push(Math.floor(this.randomCustomersPerHour() * this.avgCookiesPerCustomer));
-        hourlyTotals[i] = hourlyTotals[i] + this.hourlyCookies[i];
-        this.dailyCookies = this.dailyCookies + this.hourlyCookies[i]
+        hourlyTotals[i] += this.hourlyCookies[i];
+        this.dailyCookies += this.hourlyCookies[i]
     }
     totalsTotal = totalsTotal + this.dailyCookies;
     console.log(`${this.name} sold ${this.dailyCookies} cookies today.`);
@@ -133,11 +133,11 @@ for (var i = 0; i < allStores.length; i++) {
 }
 salesFooter();
 
-console.table(allStores);
-
 //call tosser counter, and render table
 salesHeader(tableTwo);
 for (var i = 0; i < allStores.length; i++) {
     allStores[i].randomHourlyTossers();
     allStores[i].renderTossers();
 }
+
+console.table(allStores);

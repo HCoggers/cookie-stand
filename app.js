@@ -15,6 +15,7 @@ function CookieStore(name, minHourlyCustomers, maxHourlyCustomers, avgCookiesPer
     this.avgCookiesPerCustomer = avgCookiesPerCustomer;
     this.hourlyCookies = [];
     this.dailyCookies = 0;
+    this.hourlyTossers = [];
     allStores.push(this);
 }
 
@@ -24,8 +25,6 @@ new CookieStore('Seatac Airport', 3, 24, 1.2);
 new CookieStore('Seattle Center', 11, 38, 3.7);
 new CookieStore('Capitol Hill', 20, 38, 2.3);
 new CookieStore('Alki', 2, 16, 4.6);
-
-console.table(allStores);
 
 //calculate simulated customer data
 CookieStore.prototype.randomCustomersPerHour = function () {
@@ -42,6 +41,35 @@ CookieStore.prototype.randomHourlyCookies = function () {
     totalsTotal = totalsTotal + this.dailyCookies;
     console.log(`${this.name} sold ${this.dailyCookies} cookies today.`);
 };
+
+//calculate simulated hourly staffing data
+CookieStore.prototype.randomHourlyTossers = function () {
+    for (var i = 0; i < hours.length; i++) {
+        var tossers = Math.ceil(this.hourlyCookies[i] / 20);
+        if (tossers < 2){
+            tossers += 2;
+        }
+        this.hourlyTossers.push(tossers);
+    };
+}
+
+//render hourly staffing
+// CookieStore.prototype.renderTossers = function () {
+//     var trEl = document.createElement('tr');
+//     var tdEl = document.createElement('td');
+//     tdEl.textContent = this.name;
+//     trEl.appendChild(tdEl);
+//     for (var i = 0; i < hours.length; i++) {
+//         tdEl = document.createElement('td');
+//         tdEl.textContent = this.hourlyTossers[i];
+//         trEl.appendChild(tdEl);
+//     }
+//     tdEl = document.createElement('td');
+//     tdEl.textContent = this.dailyCookies;
+//     trEl.appendChild(tdEl);
+//     table.appendChild(trEl);
+};
+
 
 //render as a table row on sales.html
 CookieStore.prototype.render = function () {
@@ -102,3 +130,10 @@ for (var i = 0; i < allStores.length; i++) {
     allStores[i].render();
 }
 salesFooter();
+
+console.table(allStores);
+
+//call tosser counter
+for (var i = 0; i < allStores.length; i++) {
+    allStores[i].randomHourlyTossers();
+}

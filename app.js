@@ -22,7 +22,33 @@ function CookieStore(name, minHourlyCustomers, maxHourlyCustomers, avgCookiesPer
 }
 
 //use store constructor from user input
+function newStore (event) {
+    event.preventDefault();
 
+    if (!event.target.storename.value || !event.target.mincust.value || !event.target.maxcust.value || !event.target.avgcook.value) {
+        return alert('Please fill out the entire form before submitting');
+    }
+
+    var inputName = event.target.storename.value;
+    var inputMin = parseInt(event.target.mincust.value);
+    var inputMax = parseInt(event.target.maxcust.value);
+    var inputAvg = parseInt(event.target.avgcook.value);
+    
+    new CookieStore(inputName, inputMin, inputMax, inputAvg);
+
+    event.target.storename.value = '';
+    event.target.mincust.value = '';
+    event.target.maxcust.value = '';
+    event.target.avgcook.value = '';
+
+    table.textContent = '';
+    tableTwo.textContent = '';
+    renderSales();
+    renderStaff();
+    console.table(allStores);
+}
+
+storeForm.addEventListener('submit', newStore);
 
 //create store instances
 new CookieStore('1st and Pike', 23, 65, 6.3);
@@ -110,7 +136,6 @@ function salesHeader(tablevar) {
     }
     tablevar.appendChild(trEl);
 }
-
 //render footer
 function salesFooter() {
     var trEl = document.createElement('tr');
@@ -128,20 +153,26 @@ function salesFooter() {
     table.appendChild(trEl);
 }
 
-//call object functions
-salesHeader(table);
-for (var i = 0; i < allStores.length; i++) {
-    allStores[i].randomCustomersPerHour();
-    allStores[i].randomHourlyCookies();
-    allStores[i].render();
-}
-salesFooter();
-
-//call tosser counter, and render table
-salesHeader(tableTwo);
-for (var i = 0; i < allStores.length; i++) {
-    allStores[i].randomHourlyTossers();
-    allStores[i].renderTossers();
+//render full sales table
+function renderSales(){
+    salesHeader(table);
+    for (var i = 0; i < allStores.length; i++) {
+        allStores[i].randomCustomersPerHour();
+        allStores[i].randomHourlyCookies();
+        allStores[i].render();
+    }
+    salesFooter();
 }
 
-console.table(allStores);
+//render full staffing table
+function renderStaff(){
+    salesHeader(tableTwo);
+    for (var i = 0; i < allStores.length; i++) {
+        allStores[i].randomHourlyTossers();
+        allStores[i].renderTossers();
+    }
+}
+
+renderSales();
+renderStaff();
+// console.table(allStores);

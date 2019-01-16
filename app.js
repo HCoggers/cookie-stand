@@ -3,6 +3,7 @@
 //set global variables
 var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 var table = document.getElementById('sales');
+var tableTwo = document.getElementById('staff')
 var allStores = [];
 var hourlyTotals = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var totalsTotal = 0;
@@ -46,28 +47,27 @@ CookieStore.prototype.randomHourlyCookies = function () {
 CookieStore.prototype.randomHourlyTossers = function () {
     for (var i = 0; i < hours.length; i++) {
         var tossers = Math.ceil(this.hourlyCookies[i] / 20);
-        if (tossers < 2){
+        if (tossers < 1){
             tossers += 2;
+        }else if (tossers < 2){
+            tossers++;
         }
         this.hourlyTossers.push(tossers);
     };
 }
 
 //render hourly staffing
-// CookieStore.prototype.renderTossers = function () {
-//     var trEl = document.createElement('tr');
-//     var tdEl = document.createElement('td');
-//     tdEl.textContent = this.name;
-//     trEl.appendChild(tdEl);
-//     for (var i = 0; i < hours.length; i++) {
-//         tdEl = document.createElement('td');
-//         tdEl.textContent = this.hourlyTossers[i];
-//         trEl.appendChild(tdEl);
-//     }
-//     tdEl = document.createElement('td');
-//     tdEl.textContent = this.dailyCookies;
-//     trEl.appendChild(tdEl);
-//     table.appendChild(trEl);
+CookieStore.prototype.renderTossers = function () {
+    var trEl = document.createElement('tr');
+    var tdEl = document.createElement('td');
+    tdEl.textContent = this.name;
+    trEl.appendChild(tdEl);
+    for (var i = 0; i < hours.length; i++) {
+        tdEl = document.createElement('td');
+        tdEl.textContent = this.hourlyTossers[i];
+        trEl.appendChild(tdEl);
+    }
+    tableTwo.appendChild(trEl);
 };
 
 
@@ -89,7 +89,7 @@ CookieStore.prototype.render = function () {
 };
 
 //render header
-function salesHeader() {
+function salesHeader(tablevar) {
     var trEl = document.createElement('tr');
     var thEl = document.createElement('th');
     thEl.textContent = '';
@@ -99,10 +99,12 @@ function salesHeader() {
         thEl.textContent = hours[i];
         trEl.appendChild(thEl);
     }
+    if (tablevar === table){
     thEl = document.createElement('th');
     thEl.textContent = 'Daily Location Total';
     trEl.appendChild(thEl);
-    table.appendChild(trEl);
+    }
+    tablevar.appendChild(trEl);
 }
 
 //render footer
@@ -123,7 +125,7 @@ function salesFooter() {
 }
 
 //call object functions
-salesHeader();
+salesHeader(table);
 for (var i = 0; i < allStores.length; i++) {
     allStores[i].randomCustomersPerHour();
     allStores[i].randomHourlyCookies();
@@ -133,7 +135,9 @@ salesFooter();
 
 console.table(allStores);
 
-//call tosser counter
+//call tosser counter, and render table
+salesHeader(tableTwo);
 for (var i = 0; i < allStores.length; i++) {
     allStores[i].randomHourlyTossers();
+    allStores[i].renderTossers();
 }

@@ -1,0 +1,8 @@
+body {
+    width: 960px;
+    margin: 0 auto;
+    background-image: url("https://github.com/codefellows/seattle-201d44/raw/master/class-06-dom-objects-domain_modeling/assets/salmon.png");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}

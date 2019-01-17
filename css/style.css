@@ -8,6 +8,22 @@ C7461B
     background-color: #eeeced;
 }
 
+a {
+    background-color: #1b676a;
+    border: #1b676a outset 5px;
+    color: #eeeced;
+    padding: 5px;
+}
+a:hover {
+    background-color: #eeeced;
+    border: #eeeced inset 5px;
+    color: #1b676a;
+}
+
+header {
+    border: 10px solid #41261c;
+}
+
 .highlights {
     font-family: 'ZCOOL KuaiLe', cursive;
     color: #c7461b;
@@ -22,7 +38,7 @@ C7461B
 .text {
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: #41261c;
-    font-size: 3em;
+    font-size: 2em;
     padding-bottom: 1em;
 }
 
@@ -37,7 +53,8 @@ img{
 h1 {
     text-align: right;
     font-size: 7em;
-    padding: 5% 10% 0% 0%;
+    padding: 2% 5% 2% 0%;
+    text-shadow: #1b676a 5px 5px;
 }
 
 h2 {
@@ -46,13 +63,15 @@ h2 {
     padding-top: 5%;
 }
 
-p {
-    width: 70%;
+article {
+    width: 75%;
     float: right;
+    padding: 1em;
+    border: 2px solid #1b676a;
 }
 
 aside {
-    width: 30%;
+    width: 20%;
     float: left;
 }
 

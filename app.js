@@ -33,8 +33,21 @@ function newStore (event) {
     var inputMin = parseInt(event.target.mincust.value);
     var inputMax = parseInt(event.target.maxcust.value);
     var inputAvg = parseInt(event.target.avgcook.value);
+    var isItNew = true;
     
-    new CookieStore(inputName, inputMin, inputMax, inputAvg);
+    for (var i = 0; i < allStores.length; i++) {
+        if (inputName === allStores[i].name) {
+            allStores[i].minHourlyCustomers = inputMin;
+            allStores[i].maxHourlyCustomers = inputMax;
+            allStores[i].avgCookiesPerCustomer = inputAvg;
+            isItNew = false;
+        }
+        allStores[i].hourlyCookies = [];
+        allStores[i].hourlyTossers = [];
+    }
+    if (isItNew === true) {
+        new CookieStore(inputName, inputMin, inputMax, inputAvg);
+    }
 
     event.target.storename.value = '';
     event.target.mincust.value = '';
@@ -43,6 +56,10 @@ function newStore (event) {
 
     table.textContent = '';
     tableTwo.textContent = '';
+    totalsTotal = 0;
+    for (var i = 0; i < hours.length; i ++){
+        hourlyTotals[i] = 0;
+    }
     renderSales();
     renderStaff();
     console.table(allStores);
@@ -158,6 +175,7 @@ function renderSales(){
     salesHeader(table);
     for (var i = 0; i < allStores.length; i++) {
         allStores[i].randomCustomersPerHour();
+        allStores[i].dailyCookies = 0;
         allStores[i].randomHourlyCookies();
         allStores[i].render();
     }

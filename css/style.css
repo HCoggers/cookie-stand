@@ -1,8 +1,121 @@
-body {
-    width: 960px;
-    margin: 0 auto;
-    background-image: url("https://github.com/codefellows/seattle-201d44/raw/master/class-06-dom-objects-domain_modeling/assets/salmon.png");
-    background-size: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+body>img {
+    width: 100%;
+    position: fixed;
+    top:10%;
+    opacity: 0.3;
+    z-index: -1;
+}
+body>img:first-child {
+    left: -70%;
+}
+body>img:last-child{
+    right: -70%;
+}
+
+header {
+    margin-top: 15%;
+    position: absolute;
+    left: 35%;
+    width: 30%;
+}
+header img {
+    width: 30%;
+    border-radius: 40%;
+    border: whitesmoke outset 5px;
+    position: relative;
+    filter: saturate(30%);
+    left: 35%;
+}
+h1, h2 {
+    font-family: 'Parisienne', cursive;
+    color: grey;
+    text-align: center;
+    font-size: 2em;
+    
+}
+h1 {
+    font-size: 3em;
+    text-align: center;
+}
+
+aside {
+    float: left;
+    position: sticky;
+    top: 0;
+    padding: 2%;
+    border: whitesmoke outset 2px;
+    background-color: whitesmoke;
+    border-radius: 10%;
+    width: 21%;
+    height: 2em;
+    font-family: 'nova mono', monospace;
+    font-size: 1.2em;
+    text-align: center;
+    color: transparent;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: height 2s, color 2s;
+
+}
+
+header + aside {
+    float: right;
+}
+
+aside a {
+    text-decoration: none;
+}
+
+aside img {
+    border: whitesmoke outset 5px;
+    border-radius: 40%;
+    width: 50%;
+}
+
+aside:hover {
+    height: 13em;
+    color: darkgrey;
+}
+article {
+    font-size: 16px;
+    position: absolute;
+    padding-top: 1.5em;
+    top: 80%;
+    left: 26%;
+    width: 48%;
+    border: gray double 1px;
+}
+article p {
+    padding: 1em;
+}
+img[alt="A Cookie Cutter"] {
+    float: left;
+    margin: 1em;
+    width: 30%;
+    border: whitesmoke outset 2px;
+    border-radius: 5px;
+}
+img[alt="A Frosted Cookie"] {
+    float: right;
+    margin: 1em;
+    width: 30%;
+    border: whitesmoke outset 2px;
+    border-radius: 5px;
+}
+article img:last-child {
+    position: relative;
+    left: 24%;
+    margin: 1%;
+    width: 50%;
+    border: whitesmoke outset 2px;
+    border-radius: 5px;
+}
+
+footer img {
+    position: absolute;
+    top: 300%;
+    width: 30%;
+    left:35%;
+    padding: 10% 0%;
 }

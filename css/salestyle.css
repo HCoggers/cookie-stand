@@ -1,0 +1,22 @@
+body {
+    font-family: 'Nova Mono', monospace;
+    color: grey;
+}    
+h2 {
+    font-family: 'Parisienne', cursive;
+    font-size: 32px;
+}
+aside {
+    float: left;
+    width:200px;
+    text-align: center;
+    height: 30px;
+    overflow: hidden;
+    border: 5px whitesmoke outset;
+    border-radius: 10px;
+    transition: 2s;
+}
+
+aside:hover {
+    height: 300px;
+}

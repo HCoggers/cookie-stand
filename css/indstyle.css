@@ -63,8 +63,9 @@ header + aside {
     float: right;
 }
 
-aside a {
-    text-decoration: none;
+a {
+    text-decoration-color: darkgrey;
+    text-decoration-style: dotted;
 }
 
 aside img {
@@ -114,8 +115,11 @@ article img:last-child {
 
 footer img {
     position: absolute;
-    top: 300%;
+    top: 280%;
     width: 30%;
     left:35%;
-    padding: 10% 0%;
+    padding-bottom: 15px;
+}
+footer h2{
+    padding-top: 20px;
 }

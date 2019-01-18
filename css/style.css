@@ -1,110 +1,121 @@
-/* Use color codes:
-1B676A
-EEECED
-FBAD0E
-C7461B
-41261C */
-* {
-    background-color: #eeeced;
+body>img {
+    width: 100%;
+    position: fixed;
+    top:10%;
+    opacity: 0.3;
+    z-index: -1;
 }
-
-a {
-    background-color: #1b676a;
-    border: #1b676a outset 5px;
-    color: #eeeced;
-    padding: 5px;
+body>img:first-child {
+    left: -70%;
 }
-a:hover {
-    background-color: #eeeced;
-    border: #eeeced inset 5px;
-    color: #1b676a;
+body>img:last-child{
+    right: -70%;
 }
 
 header {
-    border: 10px solid #41261c;
+    margin-top: 15%;
+    position: absolute;
+    left: 35%;
+    width: 30%;
 }
-
-.highlights {
-    font-family: 'ZCOOL KuaiLe', cursive;
-    color: #c7461b;
+header img {
+    width: 30%;
+    border-radius: 40%;
+    border: whitesmoke outset 5px;
+    position: relative;
+    filter: saturate(30%);
+    left: 35%;
 }
-
-.data {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #fbad0e;
-    padding-left: 5%;
-}
-
-.text {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #41261c;
+h1, h2 {
+    font-family: 'Parisienne', cursive;
+    color: grey;
+    text-align: center;
     font-size: 2em;
-    padding-bottom: 1em;
+    
 }
-
-img{
-    width: 394px;
-    height: 246px;
-    object-fit: cover;
-    object-position: 100% 0%;
-    float: left;
-}
-
 h1 {
-    text-align: right;
-    font-size: 7em;
-    padding: 2% 5% 2% 0%;
-    text-shadow: #1b676a 5px 5px;
-}
-
-h2 {
-    font-size: 2em;
-    padding-left: 2%;
-    padding-top: 5%;
-}
-
-article {
-    width: 75%;
-    float: right;
-    padding: 1em;
-    border: 2px solid #1b676a;
+    font-size: 3em;
+    text-align: center;
 }
 
 aside {
-    width: 20%;
     float: left;
+    position: sticky;
+    top: 0;
+    padding: 2%;
+    border: whitesmoke outset 2px;
+    background-color: whitesmoke;
+    border-radius: 10%;
+    width: 21%;
+    height: 2em;
+    font-family: 'nova mono', monospace;
+    font-size: 1.2em;
+    text-align: center;
+    color: transparent;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: height 2s, color 2s;
+
 }
 
-/* sales page */
+header + aside {
+    float: right;
+}
 
-table {
-    width: 95%;
+aside a {
+    text-decoration: none;
+}
+
+aside img {
+    border: whitesmoke outset 5px;
+    border-radius: 40%;
+    width: 50%;
+}
+
+aside:hover {
+    height: 13em;
+    color: darkgrey;
+}
+article {
+    font-size: 16px;
+    position: absolute;
+    padding-top: 1.5em;
+    top: 80%;
+    left: 26%;
+    width: 48%;
+    border: gray double 1px;
+}
+article p {
+    padding: 1em;
+}
+img[alt="A Cookie Cutter"] {
+    float: left;
+    margin: 1em;
+    width: 30%;
+    border: whitesmoke outset 2px;
+    border-radius: 5px;
+}
+img[alt="A Frosted Cookie"] {
+    float: right;
+    margin: 1em;
+    width: 30%;
+    border: whitesmoke outset 2px;
+    border-radius: 5px;
+}
+article img:last-child {
+    position: relative;
+    left: 24%;
     margin: 1%;
+    width: 50%;
+    border: whitesmoke outset 2px;
+    border-radius: 5px;
 }
 
-tr :first-child{
-    font-weight: bold;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 1.5em;
-}
-
-th {
-    border: 5px solid #1b676a;
-    background-color: #41261c;
-    font-weight: bold;
-    font-family: monospace;
-    color: #fbad0e;
-    vertical-align: middle;
-    height: 3em;
-}
-
-td {
-    background-color: #eeeced;
-    padding: 0.5em 1em;
-    border: 5px solid #1b676a;
-    font-family: monospace;
-    color: #41261c;
-    vertical-align: middle;
-    font-weight: bold;
-    font-size: 1.3em;
+footer img {
+    position: absolute;
+    top: 300%;
+    width: 30%;
+    left:35%;
+    padding: 10% 0%;
 }

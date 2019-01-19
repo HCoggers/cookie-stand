@@ -19,15 +19,15 @@
                         </p>
                         <p>
                             <label>Minimum Hourly Customers</label>
-                            <input type="number" name="mincust" />
+                            <input type="number" name="mincust" min="0"/>
                         </p>
                         <p>
                             <label>Maximum Hourly Customers</label>
-                            <input type="number" name="maxcust" />
+                            <input type="number" name="maxcust" min="1"/>
                         </p>
                         <p>
                             <label>Average Cookies/Sale</label>
-                            <input type="number" name="avgcook" step=".1"/>
+                            <input type="number" name="avgcook" step=".1" min="0"/>
                         </p>
                         <p>
                             <input type="submit" name="submit" value="Add Store" />

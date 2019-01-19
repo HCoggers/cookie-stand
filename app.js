@@ -27,6 +27,8 @@ function newStore (event) {
 
     if (!event.target.storename.value || !event.target.mincust.value || !event.target.maxcust.value || !event.target.avgcook.value) {
         return alert('Please fill out the entire form before submitting');
+    }else if (parseInt(event.target.mincust.value) > parseInt(event.target.maxcust.value)) {
+        return alert('Your maximum customers per hour must be higher than your minimum')
     }
 
     var inputName = event.target.storename.value;

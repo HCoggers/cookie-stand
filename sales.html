@@ -3,43 +3,45 @@
     <head>
         <title>Pat's Salmon Cookies: Sales</title>
         <link href="css/reset.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet" />
-        <link href="css/style.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Parisienne" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nova+Mono" rel="stylesheet">
+        <link href="css/salestyle.css" rel="stylesheet" />
     </head>
     <body>
-        <header>
-            <h2><a href="index.html">PUBLIC PAGE</a></h2>
-        </header>
-        <h2>Add a new "Pat's Salmon Cookies" Location:</h2>
-        <form id="storeform">
-            <fieldset>
-                    <p>
-                        <label>Store Name</label>
-                        <input type="text" name="storename" />
-                    </p>
-                    <p>
-                        <label>Minimum Hourly Customers</label>
-                        <input type="number" name="mincust" />
-                    </p>
-                    <p>
-                        <label>Maximum Hourly Customers</label>
-                        <input type="number" name="maxcust" />
-                    </p>
-                    <p>
-                        <label>Average Cookies/Sale</label>
-                        <input type="number" name="avgcook" step=".1"/>
-                    </p>
-                    <p>
-                        <input type="submit" name="submit" value="Add Store" />
-                    </p>
-            </fieldset>
-        </form>
+        <h2><a href="index.html">Index</a></h2>
+        <aside>
+            <h2>Add Location:</h2>
+            <form id="storeform">
+                <fieldset>
+                        <p>
+                            <label>Store Name</label>
+                            <input type="text" name="storename" />
+                        </p>
+                        <p>
+                            <label>Minimum Hourly Customers</label>
+                            <input type="number" name="mincust" />
+                        </p>
+                        <p>
+                            <label>Maximum Hourly Customers</label>
+                            <input type="number" name="maxcust" />
+                        </p>
+                        <p>
+                            <label>Average Cookies/Sale</label>
+                            <input type="number" name="avgcook" step=".1"/>
+                        </p>
+                        <p>
+                            <input type="submit" name="submit" value="Add Store" />
+                        </p>
+                </fieldset>
+            </form>
+        </aside>
 
-        <h2>Sales figures for "Pat's Salmon Cookies"</h2>
-        <table id='sales'></table>
-
-        <h2>Weekly Staffing Needs</h2>
-        <table id='staff'></table>
+        <div>
+            <h2>Sales figures for "Pat's Salmon Cookies"</h2>
+            <table id='sales'></table>
+            <h2>Weekly Staffing Needs</h2>
+            <table id='staff'></table>
+        </div>
         
         <script src="app.js"></script>
     </body>

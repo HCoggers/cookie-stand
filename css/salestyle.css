@@ -1,7 +1,15 @@
 body {
     font-family: 'Nova Mono', monospace;
     color: grey;
-}    
+} 
+body>img {
+    width: 100%;
+    position: fixed;
+    top:10%;
+    opacity: 0.3;
+    z-index: -1;
+}
+
 h2 {
     font-family: 'Parisienne', cursive;
     font-size: 32px;
@@ -57,4 +65,7 @@ table:first-of-type th {
 td {
     border: solid silver 1px;
     padding: 1em;
+}
+td:first-child {
+    font-weight: bold;
 }

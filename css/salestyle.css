@@ -16,6 +16,15 @@ aside {
     border-radius: 10px;
     transition: 2s;
 }
+aside p {
+    padding-bottom: 5px;
+}
+
+a {
+    color: grey;
+    text-decoration-color: darkgrey;
+    text-decoration-style: dotted;
+}
 
 aside:hover {
     height: 300px;

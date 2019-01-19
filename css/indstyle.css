@@ -59,6 +59,10 @@ aside {
 
 }
 
+aside ul {
+    margin-bottom: 5px;
+}
+
 header + aside {
     float: right;
 }
@@ -72,10 +76,11 @@ aside img {
     border: whitesmoke outset 5px;
     border-radius: 40%;
     width: 50%;
+    margin: 30px;
 }
 
 aside:hover {
-    height: 13em;
+    height: 18em;
     color: darkgrey;
 }
 article {
